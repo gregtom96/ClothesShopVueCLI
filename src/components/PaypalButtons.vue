@@ -57,4 +57,9 @@ onMounted(() => {
     width: 50%;
     margin: auto;
 }
+@media screen and (max-width: 600px){
+    #paypal-button-container {
+        width: 90%;
+    }
+}
 </style>
