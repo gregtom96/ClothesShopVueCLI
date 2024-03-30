@@ -55,7 +55,7 @@
         <div class="element">
             <img src="../../images/tee_shirt_lacoste.jpg" alt="lacoste">
             <span> 
-                {{ getItemDickiesPrice }}€ <br>
+                {{ getItemLacostePrice }}€ <br>
                 Size : S <br>
                 100% cotton <br>
             </span>
