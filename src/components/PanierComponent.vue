@@ -40,4 +40,7 @@ h1{
     font-family: "Delicious Handrawn";
     color: white;
 }
+p{
+    text-align: center;
+}
 </style>

@@ -32,7 +32,7 @@ loadScript({ 'client-id': CLIENT_ID }).then((paypal) => {
     <div id="paypal-button-container"></div> 
 </template>
 
-<style>
+<style scoped>
 #paypal-button-container {
     width: 50%;
     margin: auto;
