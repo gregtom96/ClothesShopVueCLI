@@ -17,6 +17,14 @@ export default createStore({
             itemLacoste: 15,
             itemTnf: 15,
             itemUnderArmour: 15
+        },
+        names: {
+            itemVans: "Tee shirt Vans",
+            itemCarhartt: "Tee shirt Carhartt",
+            itemDickies: "Tee shirt Dickies",
+            itemLacoste: "Tee shirt Lacoste",
+            itemTnf: "Tee shirt The North Face",
+            itemUnderArmour: "Tee shirt Under Armour"
         }
     },
     getters: {
@@ -30,6 +38,9 @@ export default createStore({
         },
         getQuantities: state => {
             return state.quantities
+        },
+        getNames: state => {
+            return state.names
         },
         getItemVansQuantity: state => {
             return state.quantities.itemVans;

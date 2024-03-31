@@ -96,20 +96,8 @@ export default {
     components: {
         HoverPanier
     },
-    data() {
-        return{
-            names: {
-                itemVans: "Tee shirt Vans",
-                itemCarhartt: "Tee shirt Carhartt",
-                itemDickies: "Tee shirt Dickies",
-                itemLacoste: "Tee shirt Lacoste",
-                itemTnf: "Tee shirt The North Face",
-                itemUnderArmour: "Tee shirt Under Armour"
-            }
-        }
-    },
     computed: {
-        ...mapGetters(['getTotalPrice','getQuantities',
+        ...mapGetters(['getTotalPrice','getQuantities', 'getNames',
         'getItemVansQuantity', 'getItemVansPrice',
         'getItemCarharttQuantity', 'getItemCarharttPrice',
         'getItemDickiesQuantity', 'getItemDickiesPrice',
@@ -126,7 +114,7 @@ export default {
             let baliseSelection = document.querySelector(".selection")
 
             let nouveauSpan = document.createElement("span")
-            nouveauSpan.textContent = this.names[item]
+            nouveauSpan.textContent = this.getNames[item]
             baliseSelection.appendChild(nouveauSpan)    
             
             let nouveauBr = document.createElement("br")
@@ -173,7 +161,7 @@ img[alt="panier"]{
 .menu{
     display: none;
     position: absolute;
-    top: 100%;
+    top: 80%;
     right: 50%;
     background-color: #fff;
     padding: 10px;
@@ -242,7 +230,7 @@ main button{
     width: 95%;
     height: 25px;
     margin-bottom: 4px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 /*bouton Pay*/
 .buy{
