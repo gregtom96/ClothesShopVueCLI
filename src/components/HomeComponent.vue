@@ -15,7 +15,7 @@
                 <p class="delete" v-on:click="deleteSelection()">Delete all</p>
                 <router-link to="/panier">
                     <button class="total">
-                        Total : {{ getTotalPrice }}€
+                        Pay : {{ getTotalPrice }}€
                     </button> 
                 </router-link>
             </div>

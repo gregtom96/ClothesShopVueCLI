@@ -15,20 +15,28 @@ Sandbox account email : sb-6varj29523569@personal.example.com
 Sandbox account password : g&I%LBX7*/
 
 const totalPrice = ref(0)
+const articlePrice = ref(1)
 
 // Retrieve total price from Vuex store
 const store = useStore()
 const getTotalPrice = () => store.getters.getTotalPrice
+const getArticlePrice = () => store.getters.getArticlePrice
 
 onMounted(() => {
     // Load PayPal script
     loadScript({ 'client-id': CLIENT_ID }).then((paypal) => {
         paypal.Buttons({
             createOrder: function(data, actions){
+                let value;
+                if (articlePrice.value > 0) {
+                    value = articlePrice.value.toString();
+                } else {
+                    value = totalPrice.value.toString();
+                }
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: totalPrice.value.toString()
+                            value: value
                         }
                     }]
                 })
@@ -49,6 +57,7 @@ onMounted(() => {
 // Update total price when component is mounted
 onMounted(() => {
     totalPrice.value = getTotalPrice()
+    articlePrice.value = getArticlePrice()
 })
 </script>
 
