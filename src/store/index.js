@@ -25,7 +25,8 @@ export default createStore({
             itemLacoste: "Tee shirt Lacoste",
             itemTnf: "Tee shirt The North Face",
             itemUnderArmour: "Tee shirt Under Armour"
-        }
+        },
+        articlePrice: 0
     },
     getters: {
         getTotalPrice: state => {
@@ -36,8 +37,14 @@ export default createStore({
             + (state.quantities.itemTnf * state.prices.itemTnf)
             + (state.quantities.itemUnderArmour * state.prices.itemUnderArmour)
         },
+        getArticlePrice: state => {
+            return state.articlePrice
+        },
         getQuantities: state => {
             return state.quantities
+        },
+        getPrices: state => {
+            return state.prices
         },
         getNames: state => {
             return state.names
@@ -80,6 +87,14 @@ export default createStore({
         }
     },
     mutations: {
+        SET_ARTICLE_PRICE(state, price) {
+            state.articlePrice = price;
+        },
+        RESET_TOTAL_PRICE(state) {
+            Object.keys(state.quantities).forEach(key => {
+                state.quantities[key] = 0;
+            })
+        }
     },
     actions: {
     },

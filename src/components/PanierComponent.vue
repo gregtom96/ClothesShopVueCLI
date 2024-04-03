@@ -1,11 +1,12 @@
 <template>
     <header>
         <router-link to="/">
-            <h1>Tee Shirt Shop</h1>
+            <h1 @click="resetPanier()">Tee Shirt Shop</h1>
         </router-link>
     </header>
     <main>
-        <p> Total : {{ getTotalPrice }}€ </p>
+        <p v-if="getArticlePrice !== 0"> Total : {{ getArticlePrice }}€ </p>
+        <p v-else> Total : {{ getTotalPrice }}€ </p>
         <PaypalButtons />
     </main>
 </template>
@@ -20,7 +21,13 @@ export default {
         PaypalButtons
     },
     computed: {
-        ...mapGetters(['getTotalPrice'])
+        ...mapGetters(['getTotalPrice', 'getArticlePrice'])
+    },
+    methods: {
+        resetPanier(){
+            this.$store.commit('SET_ARTICLE_PRICE', 0)
+            this.$store.commit('RESET_TOTAL_PRICE')
+        }
     }
 }
 </script>

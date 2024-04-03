@@ -21,29 +21,29 @@ const store = useStore()
 const getTotalPrice = () => store.getters.getTotalPrice
 
 onMounted(() => {
-  // Load PayPal script
-  loadScript({ 'client-id': CLIENT_ID }).then((paypal) => {
-    paypal.Buttons({
-      createOrder: function(data, actions){
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: totalPrice.value.toString()
+    // Load PayPal script
+    loadScript({ 'client-id': CLIENT_ID }).then((paypal) => {
+        paypal.Buttons({
+            createOrder: function(data, actions){
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalPrice.value.toString()
+                        }
+                    }]
+                })
+            },
+            onApprove: function(data, actions){
+                return actions.order.capture().then(function(details){
+                  alert("Transaction OK : "+details.payer.name.given_name);
+                })
+            },
+            onError: function (err){
+                console.error('Payment error :', err);
+                alert("Payment failed !");
             }
-          }]
-        })
-      },
-      onApprove: function(data, actions){
-        return actions.order.capture().then(function(details){
-          alert("Transaction OK : "+details.payer.name.given_name);
-        })
-      },
-      onError: function (err){
-        console.error('Payment error :', err);
-        alert("Payment failed !");
-      }
-    }).render("#paypal-button-container");
-  })
+        }).render("#paypal-button-container");
+    })
 })
 
 // Update total price when component is mounted

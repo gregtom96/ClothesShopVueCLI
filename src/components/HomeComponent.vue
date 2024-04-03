@@ -29,7 +29,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemVans')">Buy</button>
             <button class="cart" @click="addItemToCart('itemVans')">Add to cart</button>
         </div>
         <div class="element">
@@ -39,7 +39,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemCarhartt')">Buy</button>
             <button class="cart" @click="addItemToCart('itemCarhartt')">Add to cart</button>
         </div>
         <div class="element">
@@ -49,7 +49,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemDickies')">Buy</button>
             <button class="cart" @click="addItemToCart('itemDickies')">Add to cart</button>
         </div>
         <div class="element">
@@ -59,7 +59,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemLacoste')">Buy</button>
             <button class="cart" @click="addItemToCart('itemLacoste')">Add to cart</button>
         </div>
         <div class="element">
@@ -69,7 +69,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemTnf')">Buy</button>
             <button class="cart" @click="addItemToCart('itemTnf')">Add to cart</button>
         </div>
         <div class="element">
@@ -79,7 +79,7 @@
                 Size : S <br>
                 100% cotton <br>
             </span>
-            <button class="buy">Buy</button>
+            <button class="buy" @click="buyItem('itemUnderArmour')">Buy</button>
             <button class="cart" @click="addItemToCart('itemUnderArmour')">Add to cart</button>
         </div>
     </main>
@@ -97,7 +97,8 @@ export default {
         HoverPanier
     },
     computed: {
-        ...mapGetters(['getTotalPrice','getQuantities', 'getNames',
+        ...mapGetters(['getTotalPrice', 'getArticlePrice',
+        'getQuantities', 'getPrices','getNames',
         'getItemVansQuantity', 'getItemVansPrice',
         'getItemCarharttQuantity', 'getItemCarharttPrice',
         'getItemDickiesQuantity', 'getItemDickiesPrice',
@@ -106,6 +107,10 @@ export default {
         'getItemUnderArmourQuantity', 'getItemUnderArmourPrice'])
     },
     methods: {
+        buyItem(item){
+            this.$store.commit('SET_ARTICLE_PRICE', this.getPrices[item])
+            this.$router.push('/panier');
+        },
         addItemToCart(item) {
             this.getQuantities[item] += 1
             this.resumeSelection(item)
