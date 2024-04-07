@@ -6,14 +6,18 @@
 import { loadScript } from '@paypal/paypal-js'
 import { useStore } from 'vuex'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router';
 
 // Change to your CLIENT ID gotten from the developer dashboard
-const CLIENT_ID = 'AVZOKK4SJyLcHxpBrhdACR9N-zZZ9KwTiUReMZsUcgibeqefK-HJq-oMDY3S0NsBv0qvWiO0AW2r77V7'
-/*Client ID Live : AVZOKK4SJyLcHxpBrhdACR9N-zZZ9KwTiUReMZsUcgibeqefK-HJq-oMDY3S0NsBv0qvWiO0AW2r77V7
+const CLIENT_ID = 'AfMIDAWqa_pSP2k1YSFKAVTcf2OfgSa5XFCNddL_YGysLum6lzJjS3CTbrCBiA5l9_br9AB3fr7DyKJH'
+/*
+Client ID Live : AVZOKK4SJyLcHxpBrhdACR9N-zZZ9KwTiUReMZsUcgibeqefK-HJq-oMDY3S0NsBv0qvWiO0AW2r77V7
 Client ID Sandbox : AfMIDAWqa_pSP2k1YSFKAVTcf2OfgSa5XFCNddL_YGysLum6lzJjS3CTbrCBiA5l9_br9AB3fr7DyKJH
 Sandbox account email : sb-6varj29523569@personal.example.com
-Sandbox account password : g&I%LBX7*/
+Sandbox account password : g&I%LBX7
+*/
 
+const router = useRouter();
 const totalPrice = ref(0)
 const articlePrice = ref(1)
 
@@ -44,6 +48,7 @@ onMounted(() => {
             onApprove: function(data, actions){
                 return actions.order.capture().then(function(details){
                   alert("Transaction OK : "+details.payer.name.given_name);
+                  router.push('/article');
                 })
             },
             onError: function (err){

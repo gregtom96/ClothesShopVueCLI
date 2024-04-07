@@ -1,14 +1,16 @@
 <template>
-    <header>
-        <router-link to="/">
-            <h1 @click="resetPanier()">Tee Shirt Shop</h1>
-        </router-link>
-    </header>
-    <main>
-        <p v-if="getArticlePrice !== 0"> Total : {{ getArticlePrice }}€ </p>
-        <p v-else> Total : {{ getTotalPrice }}€ </p>
-        <PaypalButtons />
-    </main>
+    <div class="panier_component">
+        <header>
+            <router-link to="/">
+                <h1 @click="resetPanier()">Tee Shirt Shop</h1>
+            </router-link>
+        </header>
+        <main>
+            <p v-if="getArticlePrice !== 0"> Total : {{ getArticlePrice }}€ </p>
+            <p v-else> Total : {{ getTotalPrice }}€ </p>
+            <PaypalButtons />
+        </main>
+    </div>
 </template>
 
 <script>
@@ -41,7 +43,7 @@ header{
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 10px;
-    height: 80px;
+    height: 60px;
 }
 h1{
     font-family: "Delicious Handrawn";

@@ -11,7 +11,7 @@ export default createStore({
             itemUnderArmour: 0
         },
         prices: {
-            itemVans: 10,
+            itemVans: 1,
             itemCarhartt: 10,
             itemDickies: 10,
             itemLacoste: 15,

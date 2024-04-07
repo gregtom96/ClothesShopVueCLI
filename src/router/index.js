@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeComponent from '../components/HomeComponent.vue'
 import PanierComponent from '../components/PanierComponent.vue'
+import ArticleComponent from '../components/ArticleComponent.vue'
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/panier',
         name: 'panier',
         component: PanierComponent
+    },
+    {
+        path: '/article',
+        name: 'article',
+        component: ArticleComponent
     }
 ]
 

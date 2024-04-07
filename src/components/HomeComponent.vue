@@ -1,9 +1,7 @@
 <template>
     <header>
         <div class="titre">
-            <router-link to="/">
-                <h1>Tee Shirt Shop</h1>
-            </router-link>
+            <h1>Tee Shirt Shop</h1>
         </div>
         <div class="panier">
             <img src="../../images/panier.png" alt="panier" class="hover-image">
@@ -140,6 +138,13 @@ export default {
 </script>
 
 <style scoped>
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../../images/background2.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+}
 header{
 	display: flex;
     justify-content: space-between;
@@ -147,7 +152,7 @@ header{
     background-color: black;
     padding-left: 10px;
     padding-right: 10px;
-    height: 80px;
+    height: 60px;
     margin-bottom: 10px;
 }
 h1{
@@ -249,12 +254,6 @@ main button{
 @media screen and (max-width: 1000px){
     main{
         grid-template-columns : 1fr 1fr; 
-        width : 80%;
-    }
-}
-@media screen and (max-width: 600px){
-    main{
-        grid-template-columns : 1fr; 
         width : 90%;
     }
 }
