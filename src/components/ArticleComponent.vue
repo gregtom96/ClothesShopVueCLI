@@ -5,7 +5,7 @@
         </router-link>
     </header>
     <p>
-        <a href="../../documents/CV.pdf" download> Download the article </a>
+        <a href="../../documents/CV.pdf" download="rio.jpg"> Download the article </a>
     </p>
 </template>
 

@@ -1,98 +1,103 @@
 <template>
-    <header>
-        <div class="titre">
-            <h1>Tee Shirt Shop</h1>
-        </div>
-        <div class="panier">
-            <img src="../../images/panier.png" alt="panier" class="hover-image">
-            <div class="menu">
-                <span>Your selection :</span>
-                    <div class="selection">
-                        <!--ici seront ajoutés les articles mis au panier-->
-                    </div>   
-                <p class="delete" v-on:click="deleteSelection()">Delete all</p>
-                <router-link to="/panier">
-                    <button class="total">
-                        Pay : {{ getTotalPrice }}€
-                    </button> 
-                </router-link>
+    <div class="component_home">
+        <header>
+            <SideMenuComponent />
+            <div class="titre">
+                <h1>Tee Shirt Shop</h1>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="element">
-            <img src="../../images/tee_shirt_vans.jpg" alt="vans">
-            <span> 
-                {{ getItemVansPrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemVans')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemVans')">Add to cart</button>
-        </div>
-        <div class="element">
-            <img src="../../images/tee_shirt_carhartt.jpg" alt="carhartt">
-            <span> 
-                {{ getItemCarharttPrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemCarhartt')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemCarhartt')">Add to cart</button>
-        </div>
-        <div class="element">
-            <img src="../../images/tee_shirt_dickies.jpg" alt="dickies">
-            <span> 
-                {{ getItemDickiesPrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemDickies')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemDickies')">Add to cart</button>
-        </div>
-        <div class="element">
-            <img src="../../images/tee_shirt_lacoste.jpg" alt="lacoste">
-            <span> 
-                {{ getItemLacostePrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemLacoste')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemLacoste')">Add to cart</button>
-        </div>
-        <div class="element">
-            <img src="../../images/tee_shirt_tnf.jpg" alt="thenorthface">
-            <span> 
-                {{ getItemTnfPrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemTnf')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemTnf')">Add to cart</button>
-        </div>
-        <div class="element">
-            <img src="../../images/tee_shirt_under_armour.jpg" alt="under_armour">
-            <span> 
-                {{ getItemUnderArmourPrice }}€ <br>
-                Size : S <br>
-                100% cotton <br>
-            </span>
-            <button class="buy" @click="buyItem('itemUnderArmour')">Buy</button>
-            <button class="cart" @click="addItemToCart('itemUnderArmour')">Add to cart</button>
-        </div>
-    </main>
-    <HoverPanier />
+            <div class="panier">
+                <img src="../../images/panier.png" alt="panier" class="hover-image">
+                <div class="menu">
+                    <span>Your selection :</span>
+                        <div class="selection">
+                            <!--ici seront ajoutés les articles mis au panier-->
+                        </div>   
+                    <p class="delete" v-on:click="deleteSelection()">Delete all</p>
+                    <router-link to="/panier">
+                        <button class="total">
+                            Pay : {{ getTotalPrice }}€
+                        </button> 
+                    </router-link>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="element">
+                <img src="../../images/tee_shirt_vans.jpg" alt="vans">
+                <span> 
+                    {{ getItemVansPrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemVans')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemVans')">Add to cart</button>
+            </div>
+            <div class="element">
+                <img src="../../images/tee_shirt_carhartt.jpg" alt="carhartt">
+                <span> 
+                    {{ getItemCarharttPrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemCarhartt')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemCarhartt')">Add to cart</button>
+            </div>
+            <div class="element">
+                <img src="../../images/tee_shirt_dickies.jpg" alt="dickies">
+                <span> 
+                    {{ getItemDickiesPrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemDickies')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemDickies')">Add to cart</button>
+            </div>
+            <div class="element">
+                <img src="../../images/tee_shirt_lacoste.jpg" alt="lacoste">
+                <span> 
+                    {{ getItemLacostePrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemLacoste')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemLacoste')">Add to cart</button>
+            </div>
+            <div class="element">
+                <img src="../../images/tee_shirt_tnf.jpg" alt="thenorthface">
+                <span> 
+                    {{ getItemTnfPrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemTnf')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemTnf')">Add to cart</button>
+            </div>
+            <div class="element">
+                <img src="../../images/tee_shirt_under_armour.jpg" alt="under_armour">
+                <span> 
+                    {{ getItemUnderArmourPrice }}€ <br>
+                    Size : S <br>
+                    100% cotton <br>
+                </span>
+                <button class="buy" @click="buyItem('itemUnderArmour')">Buy</button>
+                <button class="cart" @click="addItemToCart('itemUnderArmour')">Add to cart</button>
+            </div>
+        </main>
+        <HoverPanier />
+    </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import SideMenuComponent from '@/components/SideMenuComponent.vue'
 import HoverPanier from '@/components/HoverPanier.vue'
 import { mapGetters } from 'vuex'
 
 export default {
     name: 'HomeComponent',
     components: {
-        HoverPanier
+        HoverPanier,
+        SideMenuComponent
     },
     computed: {
         ...mapGetters(['getTotalPrice', 'getArticlePrice',
@@ -138,13 +143,6 @@ export default {
 </script>
 
 <style scoped>
-body{
-    margin: 0;
-    padding: 0;
-    background-image: url("../../images/background2.jpg");
-    background-size: cover;
-    background-repeat: repeat;
-}
 header{
 	display: flex;
     justify-content: space-between;
@@ -212,6 +210,7 @@ main{
     z-index: 1; /*inférieur au z-index de .menu donc apparaît derrière*/
 }
 .element{
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
