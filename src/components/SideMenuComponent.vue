@@ -28,16 +28,13 @@ export default{
 </script>
 
 <style scoped>
-template{
-    margin:0;
-    padding:0;
-}
 *, ::before, ::after{
     box-sizing: border-box;
 }
 .nav-toggler{
     position: fixed;
     z-index: 10;
+    top: 15px;
     height: 30px;
     width: 30px;
     border: none;
@@ -74,7 +71,7 @@ template{
 .side_menu nav{
     position: fixed;
     z-index: 10;
-    width: 30%;
+    width: 25%;
     height: 100vh; /* Change 100vw to 100vh */
     display: flex;
     justify-content: center;

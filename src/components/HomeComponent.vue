@@ -148,8 +148,6 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    padding-left: 10px;
-    padding-right: 10px;
     height: 60px;
     margin-bottom: 10px;
 }
