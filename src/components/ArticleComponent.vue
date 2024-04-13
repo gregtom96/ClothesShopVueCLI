@@ -1,17 +1,25 @@
 <template>
     <header>
-        <router-link to="/">
-            <h1 @click="resetPanier()">Tee Shirt Shop</h1>
-        </router-link>
+        <SideMenuComponent />
+        <div class="titre">
+            <router-link to="/">
+                <h1 @click="resetPanier()">Tee Shirt Shop</h1>
+            </router-link>
+        </div>
     </header>
-    <p>
-        <a href="../../documents/CV.pdf" download="rio.jpg"> Download the article </a>
-    </p>
+    <main>
+        <p> Thanks for buying on our website ! </p>
+    </main>
 </template>
 
 <script>
+import SideMenuComponent from '@/components/SideMenuComponent.vue'
+
 export default{
     name:'ArticleComponent',
+    components: {
+        SideMenuComponent
+    },
     methods: {
         resetPanier(){
             this.$store.commit('SET_ARTICLE_PRICE', 0)
@@ -24,13 +32,15 @@ export default{
 <style scoped>
 header{
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     background-color: black;
-    padding-left: 10px;
-    padding-right: 10px;
     margin-bottom: 10px;
     height: 60px;
+    margin: 0;
+}
+.titre{
+    margin: 0 auto;
 }
 h1{
     font-family: "Delicious Handrawn";

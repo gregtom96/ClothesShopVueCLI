@@ -9,7 +9,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router';
 
 // Change to your CLIENT ID gotten from the developer dashboard
-const CLIENT_ID = 'AfMIDAWqa_pSP2k1YSFKAVTcf2OfgSa5XFCNddL_YGysLum6lzJjS3CTbrCBiA5l9_br9AB3fr7DyKJH'
+const CLIENT_ID = 'AVZOKK4SJyLcHxpBrhdACR9N-zZZ9KwTiUReMZsUcgibeqefK-HJq-oMDY3S0NsBv0qvWiO0AW2r77V7'
 /*
 Client ID Live : AVZOKK4SJyLcHxpBrhdACR9N-zZZ9KwTiUReMZsUcgibeqefK-HJq-oMDY3S0NsBv0qvWiO0AW2r77V7
 Client ID Sandbox : AfMIDAWqa_pSP2k1YSFKAVTcf2OfgSa5XFCNddL_YGysLum6lzJjS3CTbrCBiA5l9_br9AB3fr7DyKJH
@@ -47,8 +47,8 @@ onMounted(() => {
             },
             onApprove: function(data, actions){
                 return actions.order.capture().then(function(details){
-                  alert("Transaction OK : "+details.payer.name.given_name);
-                  router.push('/article');
+                    alert("Transaction OK : "+details.payer.name.given_name);
+                    router.push('/article');
                 })
             },
             onError: function (err){

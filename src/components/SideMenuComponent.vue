@@ -72,7 +72,7 @@ export default{
     position: fixed;
     z-index: 3;
     width: 25%;
-    height: 100vh; /* Change 100vw to 100vh */
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@ export default{
 .side_menu nav.active{
     transform: translate(0);
 }
-.side_menu .menu-link{ /* Change 'nav a' to '.side_menu .menu-link' */
+.side_menu .menu-link{ 
     font-family: Quicksand, sans-serif;
     color: white;
     font-size: 20px;

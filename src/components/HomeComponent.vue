@@ -8,14 +8,13 @@
             <div class="panier">
                 <img src="../../images/panier.png" alt="panier" class="hover-image">
                 <div class="menu">
-                    <span>Your selection :</span>
-                        <div class="selection">
-                            <!--ici seront ajoutés les articles mis au panier-->
-                        </div>   
+                    <div class="selection">
+                        <!--ici seront ajoutés les articles mis au panier-->
+                    </div>   
                     <p class="delete" v-on:click="deleteSelection()">Delete all</p>
                     <router-link to="/panier">
                         <button class="total">
-                            Pay : {{ getTotalPrice }}€
+                            Pay {{ getTotalPrice }}€
                         </button> 
                     </router-link>
                 </div>
