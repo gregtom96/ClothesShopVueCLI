@@ -92,4 +92,10 @@ export default{
     margin: 10px 0;
     text-decoration: none;
 }
+
+@media screen and (max-width: 1000px){
+    .side_menu nav{
+        width: 50%;
+    }
+}
 </style>
