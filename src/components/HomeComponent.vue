@@ -151,6 +151,9 @@ header{
     height: 60px;
     margin-bottom: 10px;
 }
+.titre{
+    z-index: 4;
+}
 h1{
     font-family: "Delicious Handrawn";
     color: white;

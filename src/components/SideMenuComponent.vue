@@ -33,7 +33,7 @@ export default{
 }
 .nav-toggler{
     position: fixed;
-    z-index: 10;
+    z-index: 3;
     top: 15px;
     height: 30px;
     width: 30px;
@@ -70,7 +70,7 @@ export default{
 }
 .side_menu nav{
     position: fixed;
-    z-index: 10;
+    z-index: 3;
     width: 25%;
     height: 100vh; /* Change 100vw to 100vh */
     display: flex;
