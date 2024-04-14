@@ -41,10 +41,15 @@ header{
 }
 .titre{
     margin: 0 auto;
+    z-index: 4;
 }
 h1{
     font-family: "Delicious Handrawn";
     color: white;
+}
+main{
+    position: relative;
+    z-index: 1;
 }
 p{
     text-align: center;
