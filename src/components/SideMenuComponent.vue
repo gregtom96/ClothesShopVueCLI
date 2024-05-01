@@ -71,7 +71,7 @@ export default{
 .side_menu nav{
     position: fixed;
     z-index: 3;
-    width: 25%;
+    width: 30%;
     height: 100vh; 
     display: flex;
     justify-content: center;
@@ -95,7 +95,7 @@ export default{
 
 @media screen and (max-width: 1000px){
     .side_menu nav{
-        width: 50%;
+        width: 90%;
     }
 }
 </style>

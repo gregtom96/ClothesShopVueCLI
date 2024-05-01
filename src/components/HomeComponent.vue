@@ -1,5 +1,6 @@
 <template>
     <div class="component_home">
+        <HoverPanier />
         <header>
             <SideMenuComponent />
             <div class="titre">
@@ -82,7 +83,6 @@
                 <button class="cart" @click="addItemToCart('itemUnderArmour')">Add to cart</button>
             </div>
         </main>
-        <HoverPanier />
     </div>
 </template>
 
