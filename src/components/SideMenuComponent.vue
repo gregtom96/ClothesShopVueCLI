@@ -95,7 +95,7 @@ export default{
 
 @media screen and (max-width: 1000px){
     .side_menu nav{
-        width: 90%;
+        width: 80%;
     }
 }
 </style>
