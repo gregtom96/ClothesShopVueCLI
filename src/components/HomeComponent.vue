@@ -180,11 +180,14 @@ a:not(router-link) {
     text-decoration: none;
 }
 .total{
-    background-color: yellow;
+    background-color: rgb(42,157,143);
     width: 150px;
     height: 40px;
     margin: 0;
     cursor: pointer;
+}
+.total:hover{
+    background-color: rgb(72,201,176);
 }
 .hover-image:hover + .menu {
     display: block;
@@ -235,17 +238,17 @@ main button{
 }
 /*bouton Pay*/
 .buy{
-    background-color: rgb(40,167,69);
+    background-color: rgb(230,57,70);
 }
 .buy:hover{
-    background-color: rgb(56, 232, 97);
+    background-color: rgb(214,40,57);
 }
 /*bouton add to cart*/
 .cart{
-    background-color: rgb(243, 156, 18);
+    background-color: rgb(247, 127, 0);
 }
 .cart:hover{
-    background-color: rgb(255, 180, 60);
+    background-color: rgb(248, 157, 45);
 }
 
 @media screen and (max-width: 1000px){
