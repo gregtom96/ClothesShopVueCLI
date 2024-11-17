@@ -235,11 +235,17 @@ main button{
 }
 /*bouton Pay*/
 .buy{
-    background-color: yellow;
+    background-color: rgb(40,167,69);
+}
+.buy:hover{
+    background-color: rgb(56, 232, 97);
 }
 /*bouton add to cart*/
 .cart{
-    background-color: rgb(0, 145, 255);
+    background-color: rgb(243, 156, 18);
+}
+.cart:hover{
+    background-color: rgb(255, 180, 60);
 }
 
 @media screen and (max-width: 1000px){
