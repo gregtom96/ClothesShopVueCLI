@@ -24,9 +24,14 @@ const articlePrice = ref(1)
 // Retrieve total price from Vuex store
 const store = useStore()
 const getTotalPrice = () => store.getters.getTotalPrice
-const getArticlePrice = () => store.getters.getArticlePrice
+const getArticlePrice = () => store.state.articlePrice
 
 onMounted(() => {
+
+    // Update total price when component is mounted
+    totalPrice.value = getTotalPrice()
+    articlePrice.value = getArticlePrice()
+
     // Load PayPal script
     loadScript({ 'client-id': CLIENT_ID }).then((paypal) => {
         paypal.Buttons({
@@ -57,12 +62,6 @@ onMounted(() => {
             }
         }).render("#paypal-button-container");
     })
-})
-
-// Update total price when component is mounted
-onMounted(() => {
-    totalPrice.value = getTotalPrice()
-    articlePrice.value = getArticlePrice()
 })
 </script>
 

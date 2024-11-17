@@ -9,7 +9,7 @@
             </div>
         </header>
         <main>
-            <p v-if="getArticlePrice !== 0"> Total : {{ getArticlePrice }}€ </p>
+            <p v-if="articlePrice !== 0"> Total : {{ articlePrice }}€ </p>
             <p v-else> Total : {{ getTotalPrice }}€ </p>
             <PaypalButtons />     
         </main>
@@ -19,7 +19,7 @@
 <script>
 import PaypalButtons from '@/components/PaypalButtons.vue'
 import SideMenuComponent from '@/components/SideMenuComponent.vue'
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
     name: 'PanierComponent',
@@ -28,7 +28,8 @@ export default {
         SideMenuComponent
     },
     computed: {
-        ...mapGetters(['getTotalPrice', 'getArticlePrice'])
+        ...mapState(['articlePrice']),
+        ...mapGetters(['getTotalPrice'])
     },
     methods: {
         resetPanier(){

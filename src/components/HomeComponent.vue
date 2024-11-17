@@ -25,62 +25,62 @@
             <div class="element">
                 <img src="../../images/tee_shirt_vans.jpg" alt="vans">
                 <span> 
-                    {{ getItemVansPrice }}€ <br>
+                    {{ shoppingCart[0].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemVans')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemVans')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[0])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[0])">Add to cart</button>
             </div>
             <div class="element">
                 <img src="../../images/tee_shirt_carhartt.jpg" alt="carhartt">
                 <span> 
-                    {{ getItemCarharttPrice }}€ <br>
+                    {{ shoppingCart[1].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemCarhartt')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemCarhartt')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[1])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[1])">Add to cart</button>
             </div>
             <div class="element">
                 <img src="../../images/tee_shirt_dickies.jpg" alt="dickies">
                 <span> 
-                    {{ getItemDickiesPrice }}€ <br>
+                    {{ shoppingCart[2].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemDickies')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemDickies')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[2])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[2])">Add to cart</button>
             </div>
             <div class="element">
                 <img src="../../images/tee_shirt_lacoste.jpg" alt="lacoste">
                 <span> 
-                    {{ getItemLacostePrice }}€ <br>
+                    {{ shoppingCart[3].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemLacoste')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemLacoste')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[3])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[3])">Add to cart</button>
             </div>
             <div class="element">
                 <img src="../../images/tee_shirt_tnf.jpg" alt="thenorthface">
                 <span> 
-                    {{ getItemTnfPrice }}€ <br>
+                    {{ shoppingCart[4].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemTnf')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemTnf')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[4])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[4])">Add to cart</button>
             </div>
             <div class="element">
                 <img src="../../images/tee_shirt_under_armour.jpg" alt="under_armour">
                 <span> 
-                    {{ getItemUnderArmourPrice }}€ <br>
+                    {{ shoppingCart[5].cost }}€ <br>
                     Size : S <br>
                     100% cotton <br>
                 </span>
-                <button class="buy" @click="buyItem('itemUnderArmour')">Buy</button>
-                <button class="cart" @click="addItemToCart('itemUnderArmour')">Add to cart</button>
+                <button class="buy" @click="buyItem(shoppingCart[5])">Buy</button>
+                <button class="cart" @click="addItemToCart(shoppingCart[5])">Add to cart</button>
             </div>
         </main>
     </div>
@@ -90,7 +90,7 @@
 // @ is an alias to /src
 import SideMenuComponent from '@/components/SideMenuComponent.vue'
 import HoverPanier from '@/components/HoverPanier.vue'
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
     name: 'HomeComponent',
@@ -99,29 +99,23 @@ export default {
         SideMenuComponent
     },
     computed: {
-        ...mapGetters(['getTotalPrice', 'getArticlePrice',
-        'getQuantities', 'getPrices','getNames',
-        'getItemVansQuantity', 'getItemVansPrice',
-        'getItemCarharttQuantity', 'getItemCarharttPrice',
-        'getItemDickiesQuantity', 'getItemDickiesPrice',
-        'getItemLacosteQuantity', 'getItemLacostePrice',
-        'getItemTnfQuantity', 'getItemTnfPrice',
-        'getItemUnderArmourQuantity', 'getItemUnderArmourPrice'])
+        ...mapState({shoppingCart:'shoppingCart'}),
+        ...mapGetters(['getTotalPrice'])
     },
     methods: {
         buyItem(item){
-            this.$store.commit('SET_ARTICLE_PRICE', this.getPrices[item])
+            this.$store.commit('SET_ARTICLE_PRICE', item.cost)
             this.$router.push('/panier');
         },
         addItemToCart(item) {
-            this.getQuantities[item] += 1
+            item.quantity += 1
             this.resumeSelection(item)
         },
         resumeSelection(item) {
             let baliseSelection = document.querySelector(".selection")
 
             let nouveauSpan = document.createElement("span")
-            nouveauSpan.textContent = this.getNames[item]
+            nouveauSpan.textContent = item.name
             baliseSelection.appendChild(nouveauSpan)    
             
             let nouveauBr = document.createElement("br")
@@ -133,9 +127,7 @@ export default {
             baliseDelete.innerHTML = ``
 
             //Remet à 0 le prix total du panier
-            for(let item in this.getQuantities){
-            this.getQuantities[item] = 0
-            }
+            this.$store.commit('RESET_TOTAL_PRICE')
         }
     }
 }
