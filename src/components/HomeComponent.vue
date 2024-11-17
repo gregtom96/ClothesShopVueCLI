@@ -184,6 +184,7 @@ a:not(router-link) {
     width: 150px;
     height: 40px;
     margin: 0;
+    border-radius: 20px;
     cursor: pointer;
 }
 .total:hover{
@@ -234,7 +235,7 @@ main button{
     width: 95%;
     height: 25px;
     margin-bottom: 4px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 /*bouton Pay*/
 .buy{
